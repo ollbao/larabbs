@@ -127,12 +127,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Autoloaded Service Providers
+    | Autoloaded Service Providers 自动加载服务提供商
     |--------------------------------------------------------------------------
     |
     | The service providers listed here will be automatically loaded on the
     | request to your application. Feel free to add your own services to
     | this array to grant expanded functionality to your applications.
+    | 此处列出的服务提供商将自动加载到您的应用程序请求中。 随意将自己的服务添加到此阵列中，以将扩展的功能授予您的应用程序。
     |
     */
 
@@ -181,12 +182,13 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Class Aliases
+    | Class Aliases 类别名
     |--------------------------------------------------------------------------
     |
     | This array of class aliases will be registered when this application
     | is started. However, feel free to register as many as you wish as
     | the aliases are "lazy" loaded so they don't hinder performance.
+    | 此类别名数组将在此应用程序启动时注册。 然而，随意的注册尽可能多的别名是“懒”加载，所以他们不妨碍性能。
     |
     */
 
