@@ -4,12 +4,15 @@ require __DIR__ . '/helpers.php';//加载自定义的全局辅助文件
 
 /*
 |--------------------------------------------------------------------------
-| Create The Application
+| Create The Application 创建应用程序
 |--------------------------------------------------------------------------
 |
 | The first thing we will do is create a new Laravel application instance
 | which serves as the "glue" for all the components of Laravel, and is
 | the IoC container for the system binding all of the various parts.
+|
+| 我们要做的第一件事就是创建一个新的Laravel应用程序实例，它作为Laravel所有组件的“粘合剂”，
+| 并且是系统绑定所有各部分的IoC容器。
 |
 */
 
@@ -19,7 +22,7 @@ $app = new Illuminate\Foundation\Application(
 
 /*
 |--------------------------------------------------------------------------
-| Bind Important Interfaces
+| Bind Important Interfaces 绑定重要的接口
 |--------------------------------------------------------------------------
 |
 | Next, we need to bind some important interfaces into the container so

@@ -11,13 +11,17 @@ define('LARAVEL_START', microtime(true));
 
 /*
 |--------------------------------------------------------------------------
-| Register The Auto Loader
+| Register The Auto Loader 注册自动加载程序
 |--------------------------------------------------------------------------
 |
 | Composer provides a convenient, automatically generated class loader for
 | our application. We just need to utilize it! We'll simply require it
 | into the script here so that we don't have to worry about manual
 | loading any of our classes later on. It feels great to relax.
+|
+|Composer为我们的应用程序提供了一个方便，自动生成的类加载器。 我们只需要利用它！
+|我们只需要把它加入到脚本中，这样我们就不用担心以后手动加载我们的任何类。
+|放松一下感觉很好。
 |
 */
 

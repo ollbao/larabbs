@@ -82,7 +82,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Application Fallback Locale
+    | Application Fallback Locale 应用程序备用语言环境
     |--------------------------------------------------------------------------
     |
     | The fallback locale determines the locale to use when the current one
