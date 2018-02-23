@@ -10,7 +10,7 @@ class Kernel extends HttpKernel
      * The application's global HTTP middleware stack.
      *
      * These middleware are run during every request to your application.
-     *应用程序的全局HTTP中间件堆栈。这些中间件在你的应用程序的每个请求中运行。
+     * 应用程序的全局HTTP中间件堆栈。这些中间件在你的应用程序的每个请求中运行。
      * @var array
      */
     protected $middleware = [
