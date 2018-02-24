@@ -30,5 +30,4 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 */
 Auth::routes();
-//Route::get('users','UsersController',['only'=>['show','update','edit']]);
-//git添加一行
+Route::resource('users','UsersController',['only'=>['show','update','edit']]);
