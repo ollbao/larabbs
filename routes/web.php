@@ -30,4 +30,9 @@ $this->get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 */
 Auth::routes();
-Route::resource('users','UsersController',['only'=>['show','update','edit']]);
+
+//用户路由
+//Route::resource('users','UsersController',['only'=>['show','update','edit']]);
+Route::get('users/{user}', 'UsersController@show')->name('users.show');//用户个人中心
+Route::get('users/{user}/edit', 'UsersController@edit')->name('users.edit');//用户编辑页面
+Route::put('users/{user}', 'UsersController@update')->name('users.update');//用户编辑页面提交
