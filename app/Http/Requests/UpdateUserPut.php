@@ -31,4 +31,14 @@ class UpdateUserPut extends FormRequest
             'introduction' => 'max:80'          
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.unique' => '用户名已经存在',
+            'name.regex' => '用户名只支持中英文、数字、横杆和下划线',
+            'name.between' => '用户名必须介于 3 - 25 个字符之间',
+            'name.required' => '用户名不能为空'
+        ];
+    }
 }
