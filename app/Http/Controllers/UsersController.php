@@ -25,7 +25,7 @@ class UsersController extends Controller
 
         if($request->avatar){
             $fileStorePath = $request->file('avatar')->store('avatars', 'public');
-            $sData['avatar'] = $fileStorePath;
+            $sData['avatar'] = asset('storage/'.$fileStorePath);
         }
 
         $user->update($sData);

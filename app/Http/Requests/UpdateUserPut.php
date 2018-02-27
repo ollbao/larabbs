@@ -40,7 +40,7 @@ class UpdateUserPut extends FormRequest
             'name.regex' => '用户名只支持中英文、数字、横杆和下划线',
             'name.between' => '用户名必须介于 3 - 25 个字符之间',
             'name.required' => '用户名不能为空',
-            'avatar.required' => '请上传用户头像'
+            'avatar.mimes' => '用户头像图片格式:jpeg,bmp,png,gif'
         ];
     }
 }

@@ -34,7 +34,7 @@
                     <input type="file" name="avatar">
 
                     @if($user->avatar)
-                        <img class="thumbnail img-responsive" src="{{ asset('storage/'.$user->avatar) }}" width="100" />
+                        <img class="thumbnail img-responsive" src="{{ $user->avatar }}" width="100" />
                     @endif
                 </div>
                 <div class="well well-sm">
