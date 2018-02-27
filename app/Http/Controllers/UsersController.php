@@ -21,7 +21,14 @@ class UsersController extends Controller
 
     public function update(UpdateUserPut $request, User $user)
     {
-        $user->update($request->all());
+        $sData = $request->all();
+
+        if($request->avatar){
+            $fileStorePath = $request->file('avatar')->store('avatars', 'public');
+            $sData['avatar'] = $fileStorePath;
+        }
+
+        $user->update($sData);
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功');
     }
     

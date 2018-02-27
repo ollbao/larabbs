@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Filesystem Disk
+    | Default Filesystem Disk 默认文件系统磁盘
     |--------------------------------------------------------------------------
     |
     | Here you may specify the default filesystem disk that should be used
@@ -17,7 +17,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Cloud Filesystem Disk
+    | Default Cloud Filesystem Disk  默认云文件系统磁盘
     |--------------------------------------------------------------------------
     |
     | Many applications store files both locally and in the cloud. For this
