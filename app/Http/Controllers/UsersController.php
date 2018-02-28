@@ -10,18 +10,24 @@ use Intervention\Image\Facades\Image;
 class UsersController extends Controller
 {
     
+    public function __construct() {
+        $this->middleware('auth', ['except' => ['show']]);
+    }
+
     public function show(User $user)
     {
         return view('users.show', compact('user'));
     }
 
     public function edit(User $user)
-    {echo storage_path('app/public');
+    {
+        $this->authorize('update', $user);
         return view('users.edit', compact('user'));
     }
 
     public function update(UpdateUserPut $request, User $user)
     {
+        $this->authorize('update', $user);
         $sData = $request->all();
 
         if($request->avatar){
@@ -31,7 +37,7 @@ class UsersController extends Controller
                 $constraint->aspectRatio();  //设定宽度是 $max_width，高度等比例双方缩放
                 $constraint->upsize();       //防止裁图时图片尺寸变大
             })->save();
-            $sData['avatar'] = asset('storage/'.$fileStorePath);
+            $sData['avatar'] = asset('storage/'.$fileStorePath); //储存图片全路径
         }
 
         $user->update($sData);
