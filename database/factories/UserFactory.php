@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use Illuminate\Support\Carbon;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +14,7 @@ use Illuminate\Support\Carbon;
 |
 */
 
-$factory->define(App\Models\User::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
     static $password;
 
     // 头像假数据

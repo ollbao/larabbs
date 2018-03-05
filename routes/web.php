@@ -36,3 +36,7 @@ Auth::routes();
 Route::get('users/{user}', 'UsersController@show')->name('users.show');//用户个人中心
 Route::get('users/{user}/edit', 'UsersController@edit')->name('users.edit');//用户编辑页面
 Route::put('users/{user}', 'UsersController@update')->name('users.update');//用户编辑页面提交
+
+//话题路由
+Route::get('topics', 'topicsController@index')->name('topics.index');
+Route::get('topics/{topic}', 'topicsController@show')->name('topics.show');
