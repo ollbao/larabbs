@@ -19,7 +19,9 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-
+                @foreach ($navBar as $item)
+                <li class="{{ $item['active'] }}"><a href="{{ $item['url'] }}">{{ $item['name'] }}</a></li>
+                @endforeach
             </ul>
 
             <!-- Right Side Of Navbar -->

@@ -40,3 +40,4 @@ Route::put('users/{user}', 'UsersController@update')->name('users.update');//用
 //话题路由
 Route::get('topics', 'topicsController@index')->name('topics.index');
 Route::get('topics/{topic}', 'topicsController@show')->name('topics.show');
+Route::resource('categories', 'categoriesController', ['only' => ['show']]);
