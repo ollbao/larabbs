@@ -7,10 +7,12 @@ use App\Models\Topic;
 
 class TopicsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $topics = Topic::with(['user','category'])->paginate(20);
-        //$topics->fragment('aaaa');
+        $topics = Topic::with(['user','category'])
+            ->withOrder($request->order)
+            ->paginate(20)
+            ->appends($request->query());
         return view('topics.index', compact('topics'));
     }
 
