@@ -5,6 +5,8 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\View;
+use App\Models\Topic;
+use App\Observers\topicObserver;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -21,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
         View::composer(
             'layouts._header', 'App\Http\ViewComposers\NavbarComposer' //导航栏数据
         );
+
+        //模型观察器
+        Topic::observe(topicObserver::class);
     }
 
     /**

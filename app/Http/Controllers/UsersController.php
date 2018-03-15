@@ -29,7 +29,7 @@ class UsersController extends Controller
     public function update(UpdateUserPut $request, User $user)
     {
         $this->authorize('update', $user);
-        $sData = $request->all();
+        $user->fill($request->all());
 
         if($request->avatar){
             $fileStorePath = $request->file('avatar')->store('avatars', 'public');
@@ -38,10 +38,10 @@ class UsersController extends Controller
                 $constraint->aspectRatio();  //设定宽度是 $max_width，高度等比例双方缩放
                 $constraint->upsize();       //防止裁图时图片尺寸变大
             })->save();
-            $sData['avatar'] = asset('storage/'.$fileStorePath); //储存图片全路径
+            $user->avatar = asset('storage/'.$fileStorePath); //储存图片全路径
         }
 
-        $user->update($sData);
+        $user->save();
         return redirect()->route('users.show', $user->id)->with('success', '个人资料更新成功');
     }
     

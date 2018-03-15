@@ -11,6 +11,26 @@
 |
 */
 
+/*
+|-----------------------------------------------------------
+|  动作   |         URI          |   行为   |    路由名称     |
+|-----------------------------------------------------------
+| GET    | /photos              | index   | photos.index   |
+|-----------------------------------------------------------
+| GET    | /photos/create       | create  | photos.create  |
+|-----------------------------------------------------------
+| POST   | /photos              | store   | photos.store   |
+|-----------------------------------------------------------
+| GET    | /photos/{photo}      | show    | photos.show    |
+|-----------------------------------------------------------
+| GET    | /photos/{photo}/edit | edit    | photos.edit    |
+|-----------------------------------------------------------
+| PUT    | /photos/{photo}      | update  | photos.update  |
+|-----------------------------------------------------------
+| DELETE | /photos/{photo}      | destroy | photos.destroy |
+|-----------------------------------------------------------
+*/
+
 Route::get('/', 'PagesController@root')->name('root');
 
 
@@ -31,13 +51,17 @@ $this->post('password/reset', 'Auth\ResetPasswordController@reset');
 */
 Auth::routes();
 
-//用户路由
+//用户
 //Route::resource('users','UsersController',['only'=>['show','update','edit']]);
 Route::get('users/{user}', 'UsersController@show')->name('users.show');//用户个人中心
 Route::get('users/{user}/edit', 'UsersController@edit')->name('users.edit');//用户编辑页面
 Route::put('users/{user}', 'UsersController@update')->name('users.update');//用户编辑页面提交
 
-//话题路由
+//话题
 Route::get('topics', 'topicsController@index')->name('topics.index');
+Route::get('topics/create', 'topicsController@create')->name('topics.create');
+Route::post('topics', 'topicsController@store')->name('topics.store');
 Route::get('topics/{topic}', 'topicsController@show')->name('topics.show');
+
+//分类
 Route::resource('categories', 'categoriesController', ['only' => ['show']]);

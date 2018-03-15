@@ -17,9 +17,9 @@ use App\Models\Topic;
 $factory->define(Topic::class, function (Faker $faker) {
 
     $sentence = $faker->sentence();
+    $body = $faker->text();
     return [
         'title' => $sentence,
-        'body' => $faker->text(),
-        'excerpt' => $sentence
+        'body' => $body
     ];
 });
