@@ -23,8 +23,7 @@
             <div class="panel-body">
                 {{-- 话题列表 --}}
                 @include('topics._topic_list', ['topics' => $topics])
-                {{-- 分页 --}}
-                {!! $topics->links() !!}
+                
             </div>
         </div>
     </div>

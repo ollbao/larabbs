@@ -30,13 +30,14 @@ class Topic extends Model
     {
         switch ($order) {
             case 'recent':
-                $this->recent($query);
+                $query = $this->scopeRecent($query);
                 break;
             
             default:
-                $this->recentReplied($query);
+                $query = $this->scopeRecentReplied($query);
                 break;
         }
+        return $query;
     }
 
     /**
@@ -58,7 +59,7 @@ class Topic extends Model
      */
     public function scopeRecent($query)
     {
-        return $query->orderBy('create_at', 'desc');
+        return $query->orderBy('created_at', 'desc');
     }
 
     public function test(){
