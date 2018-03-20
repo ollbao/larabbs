@@ -58,10 +58,14 @@ Route::get('users/{user}/edit', 'UsersController@edit')->name('users.edit');//�
 Route::put('users/{user}', 'UsersController@update')->name('users.update');//用户编辑页面提交
 
 //话题
-Route::get('topics', 'topicsController@index')->name('topics.index');
-Route::get('topics/create', 'topicsController@create')->name('topics.create');
-Route::post('topics', 'topicsController@store')->name('topics.store');
-Route::get('topics/{topic}', 'topicsController@show')->name('topics.show');
+Route::get('topics', 'TopicsController@index')->name('topics.index');
+Route::get('topics/create', 'TopicsController@create')->name('topics.create');
+Route::post('topics', 'TopicsController@store')->name('topics.store');
+Route::get('topics/{topic}', 'TopicsController@show')->name('topics.show');
+Route::get('topics/{topic}/edit', 'TopicsController@edit')->name('topics.edit');
 
 //分类
-Route::resource('categories', 'categoriesController', ['only' => ['show']]);
+Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
+
+//上传图片
+Route::post('images', 'ImagesController@store')->name('images.store');

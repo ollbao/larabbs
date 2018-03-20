@@ -70,6 +70,14 @@
 $(document).ready(function(){
     var editor = new Simditor({
         textarea: $('#editor'),
+        upload: {
+            url: '{{ route('images.store') }}',
+            params: { _token: '{{ csrf_token() }}' },
+            fileKey: 'image',
+            connectionCount: 3,
+            leaveConfirm: '文件上传中，关闭此页面将取消上传。'
+        },
+        pasteImage: true,
     });
 });
 </script>
