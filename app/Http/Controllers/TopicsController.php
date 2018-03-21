@@ -7,6 +7,7 @@ use App\Models\Topic;
 use App\Models\Category;
 use App\Http\Requests\StoreTopicPost;
 use Illuminate\Support\Facades\Auth;
+use App\Handlers\SlugTranslateHandler;
 
 class TopicsController extends Controller
 {
@@ -34,10 +35,10 @@ class TopicsController extends Controller
     {
         $topic->fill($request->all());
         $topic->user_id = Auth::id();
-        $topic->body = clean($topic->body, 'user_topic_body');
+
         $topic->save();
         //dd($topic);
-        return redirect()->route('topics.show', $topic->id)->with('message', '创建成功');
+        return redirect()->to($topic->showLink())->with('message', '创建成功');
     }
 
     public function show(Topic $topic)
@@ -58,9 +59,9 @@ class TopicsController extends Controller
         $this->authorize('update', $topic);
         
         $topic->fill($request->all());
-        $topic->body = clean($topic->body, 'user_topic_body');
+
         $topic->save();
-        return redirect()->route('topics.show', $topic->id)->with('message', '更新成功');
+        return redirect()->to($topic->showLink())->with('message', '更新成功');
     }
 
     public function destroy(Topic $topic)
