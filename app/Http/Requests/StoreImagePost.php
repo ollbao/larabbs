@@ -25,7 +25,7 @@ class StoreImagePost extends FormRequest
     public function rules()
     {
         return [
-            'image' => 'bail|required|mimes:jpeg,bmp,png,gif|dimensions:min_width=200,min_height=200|max:1024'
+            'image' => 'bail|required|mimes:jpeg,bmp,png,gif|dimensions:min_width=200,min_height=200|max:50'
         ];
     }
 
@@ -39,24 +39,21 @@ class StoreImagePost extends FormRequest
     }
 
     /**
-     * Handle a failed validation attempt.
-     * 处理失败的验证尝试。
+     * 配置验证器实例。
      *
-     * @param  \Illuminate\Contracts\Validation\Validator  $validator
+     * @param  \Illuminate\Validation\Validator  $validator
      * @return void
-     *
-     * @throws \Illuminate\Validation\ValidationException
      */
-    // public function failedValidation(Validator $validator)
-    // {
-    //     if ($validator->fails()){
-    //         exit(json_encode([
-    //             'success'   => false,
-    //             'msg'       => $validator->errors(),
-    //             'file_path' => ''
-    //         ]));
-    //     }
-    // }
+    public function withValidator($validator)
+    {
+        if ($validator->fails()) {
+            exit(json_encode([
+                'success' => false,
+                'msg' => $validator->errors()->first(),
+                'file_path' => ''
+            ]));
+        }
+    }
 
 
 

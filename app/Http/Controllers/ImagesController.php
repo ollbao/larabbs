@@ -14,18 +14,13 @@ class ImagesController extends Controller
 
     public function store(StoreImagePost $request)
     {
-        $data = [
-            'success'   => false,
-            'msg'       => '上传失败!',
-            'file_path' => ''
-        ];
-        $image = FileUploadHandler::store($request->file('image'));
-        if($image){
-            $data['file_path'] = $image['url'];
-            $data['msg']       = "上传成功!";
-            $data['success']   = true;
-        }
         
+        $image = FileUploadHandler::store($request->file('image'));
+        $data = [
+            'success' => true,
+            'msg'  => '上传成功!',
+            'file_path' => $image['url']
+        ];
         return $data;
     }
 
