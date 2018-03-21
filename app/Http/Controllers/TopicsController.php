@@ -44,4 +44,22 @@ class TopicsController extends Controller
     {
         return view('topics.show', compact('topic'));
     }
+
+    public function edit(Topic $topic)
+    {
+        $this->authorize('update', $topic);
+        
+        $categories = Category::all();
+        return view('topics.create_and_edit', compact('categories', 'topic'));
+    }
+
+    public function update(StoreTopicPost $request, Topic $topic)
+    {
+        $this->authorize('update', $topic);
+        
+        $topic->fill($request->all());
+        $topic->body = clean($topic->body, 'user_topic_body');
+        $topic->save();
+        return redirect()->route('topics.show', $topic->id)->with('message', '更新成功');
+    }
 }

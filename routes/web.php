@@ -63,6 +63,7 @@ Route::get('topics/create', 'TopicsController@create')->name('topics.create');
 Route::post('topics', 'TopicsController@store')->name('topics.store');
 Route::get('topics/{topic}', 'TopicsController@show')->name('topics.show');
 Route::get('topics/{topic}/edit', 'TopicsController@edit')->name('topics.edit');
+Route::put('topics/{topic}', 'TopicsController@update')->name('topics.update');
 
 //分类
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);
