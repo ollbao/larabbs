@@ -62,4 +62,12 @@ class TopicsController extends Controller
         $topic->save();
         return redirect()->route('topics.show', $topic->id)->with('message', '更新成功');
     }
+
+    public function destroy(Topic $topic)
+    {
+        $this->authorize('delete', $topic);
+
+        $topic->delete();
+        return redirect()->route('topics.index')->with('message', '删除成功');
+    }
 }

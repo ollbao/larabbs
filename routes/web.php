@@ -64,6 +64,7 @@ Route::post('topics', 'TopicsController@store')->name('topics.store');
 Route::get('topics/{topic}', 'TopicsController@show')->name('topics.show');
 Route::get('topics/{topic}/edit', 'TopicsController@edit')->name('topics.edit');
 Route::put('topics/{topic}', 'TopicsController@update')->name('topics.update');
+Route::delete('topics/{topic}', 'TopicsController@destroy')->name('topics.destroy');
 
 //分类
 Route::resource('categories', 'CategoriesController', ['only' => ['show']]);

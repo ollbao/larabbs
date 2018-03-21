@@ -31,6 +31,6 @@ class TopicPolicy
      */
     public function delete(User $user, topic $topic)
     {
-        //
+        return $user->id === $topic->user_id;
     }
 }
