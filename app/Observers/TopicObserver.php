@@ -4,6 +4,7 @@ namespace App\Observers;
 
 use App\Models\Topic;
 use App\Handlers\SlugTranslateHandler;
+use App\Jobs\TranslateSlug;
 
 class topicObserver
 {
@@ -14,7 +15,12 @@ class topicObserver
         $topic->body = clean($topic->body, 'user_topic_body');
         //话题摘录
         $topic->excerpt = make_excerpt($topic->body);
-        //SEO 友好的 URL
-        $topic->slug = app(SlugTranslateHandler::class)->translate($topic->title);
+        
+    }
+
+    public function saved(Topic $topic)
+    {
+        //SEO 友好的 URL(加入队列)
+        dispatch(app(TranslateSlug::class, ['topic' => $topic]));
     }
 }
