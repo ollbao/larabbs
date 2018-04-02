@@ -21,6 +21,6 @@ class topicObserver
     public function saved(Topic $topic)
     {
         //SEO 友好的 URL(加入队列)
-        dispatch(app(TranslateSlug::class, ['topic' => $topic]));
+        dispatch(new TranslateSlug($topic));
     }
 }

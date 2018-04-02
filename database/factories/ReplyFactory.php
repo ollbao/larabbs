@@ -1,7 +1,7 @@
 <?php
 
 use Faker\Generator as Faker;
-use App\Models\Topic;
+use App\Models\Reply;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,16 +14,14 @@ use App\Models\Topic;
 |
 */
 
-$factory->define(Topic::class, function (Faker $faker) {
+$factory->define(Reply::class, function (Faker $faker) {
 
-    $sentence = $faker->sentence();
-    $body = $faker->text();
     // 随机取一个月以内的时间
     $time = $faker->dateTimeThisMonth();
+
     return [
-        'title' => $sentence,
-        'body' => $body,
+        'content' => $faker->sentence(),
         'created_at' => $time,
-        'updated_at' => $time
+        'updated_at' => $time,
     ];
 });

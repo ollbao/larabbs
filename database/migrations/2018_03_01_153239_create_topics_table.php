@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class CreateTopicsTable extends Migration
 {
@@ -27,6 +28,8 @@ class CreateTopicsTable extends Migration
             $table->string('slug')->nullable()->comment('SEO 友好的 URI');
             $table->timestamps();
         });
+
+        DB::statement("ALTER TABLE `topics` comment'话题表'"); // 表注释
     }
 
     /**

@@ -18,10 +18,11 @@ class TopicsTableSeeder extends Seeder
         $userIds = User::pluck('id');
         //获取话题分类
         $categoryIds = Category::pluck('id');
-        factory(Topic::class, 100)->make()->each(function($topic) use($userIds, $categoryIds){
+        $topics = factory(Topic::class, 100)->make()->each(function($topic) use($userIds, $categoryIds){
             $topic->user_id = $userIds->random();
             $topic->category_id = $categoryIds->random();
-            $topic->save();
         });
+
+        Topic::insert($topics->toArray());
     }
 }
